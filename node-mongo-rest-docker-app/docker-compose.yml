@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  webapp:
+    build: .
+    container_name: myapp
+    ports: 
+      - "3000:1000"
+    depends_on: 
+      - mongo
+    environment: 
+      - MONGO_DB_PORT=27017
+      
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
